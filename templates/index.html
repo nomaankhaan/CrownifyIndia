@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>IHS-HeadGear Simulation</title>
+    <style>
+      .btn-default {
+          background-color: #8EC5FC;
+          background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+          color: black;
+          font-size: 16px;
+          font-family: sans-serif;
+          font-weight: 700;
+          /*text-shadow: 1px 1px black;*/
+          /*border-color: #bf00ff;*/
+          padding: 9px 30px;
+          text-decoration: none;
+
+       }
+      .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+         background-color: #bf00ff;
+         color:#FFF;
+         border-color: bisque;
+       }
+
+      .btn-local {
+          color: white;
+          font-size: 16px;
+          font-family: sans-serif;
+          font-weight: 700;
+          text-decoration: none;
+       }
+      .btn-local:hover {
+          color: white;
+      }
+
+      .india_nav{
+          margin: 0;
+
+          background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+
+          padding: 10px 25px;
+          display: flex;
+
+          text-decoration: none;
+
+      }
+
+      .India_link {
+
+          color: black;
+          /*text-shadow: 1px 1px #555150;*/
+          text-decoration: none;
+          font-size: 20px;
+          font-family: sans-serif;
+          padding-right: 50px;
+          font-weight: 700;
+      }
+
+      .India_link:hover{
+      color:#fff;
+      font-size:22px;
+      }
+
+
+
+      .display-area{
+        padding: 30px 50px;
+        background-color: bisque;
+        margin: 30px;
+        border-radius: 10px;
+      }
+      .display-area #head-display{
+        text-align: center;
+      }
+
+      .display-area #data-display{
+        <!--font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: large; -->
+
+      }
+      .data-menu{
+        background-color: transparent;
+        border: transparent;
+      }
+
+      #instruction{
+          /*text-shadow: 1px 1px white;*/
+          text-decoration: none;
+          font-size: 20px;
+          font-family: sans-serif;
+          font-weight: 700;
+        padding: 10px;
+        text-align: center; 
+        color: black;
+          font-style: inherit;
+          /*text-shadow: 1px 1px #555150;*/
+          border-color: white;
+          background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+      }
+
+    </style>
+
+
+  </head>
+  <body style="background: #001B3B;  /* fallback for old browsers */
+">
+
+    <nav class="navbar navbar-light bg-dark">
+        <div class="container">
+              <a class="btn-local">
+            <img src="https://i.postimg.cc/xTKsPZgm/site-logo.jpg" alt="IHS" width="35" height="25">
+        Indian Head-Gear Simulation
+              </a>
+            <a class="btn-default" href="{{url_for('culturalNews')}}">Latest Cultural News</a>
+            <a class="btn-default" href="{{url_for('start_the_quiz')}}">Test Your Knowledge</a>
+        </div>
+      </nav>
+
+    <h5 id="instruction">Keep your face in the middle of the frame</h5>
+    <div style="justify-content: center; display: flex; margin-top: 30px;"><img src="{{ url_for('video') }}"></div>
+
+    <div class='container text-center'>
+      <form>
+          <a href=# id=choice_selection><button class='btn btn-primary'>Next</button></a>
+      </form>
+    </div>
+    <div class='container text-center'>
+      <p id="demo" style="color:white;font-size:160%;font-weight: 700;" > </p>
+    </div>
+{% block content %}
+
+{% endblock %}
+
+<div class="india_nav">
+    <div id="history">
+      <button class="data-menu"><a href="#history" class ="India_link">History</a></button>
+    </div>  
+    <div id="significance">
+      <button class="data-menu"><a href="#Significance" class ="India_link">Significance</a></button>
+    </div>
+    <div id="photos">
+      <button class="data-menu"><a href="#Photos" class ="India_link">Photos</a></button>
+    </div>
+</div>
+
+<div class="display-area">
+  <h1 id="head-display"></h1>
+  <hr>
+  <p id="data-display"></p>
+    <img id="image-display">
+</div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript>
+            var array = ["Punjabi Turban", "Muslim Cap", "Rajasthani Pagri"];
+            $(function() {
+              $('a#choice_selection').on('click', function(e) {
+              current_index = (current_index + 1) % array.length
+              document.getElementById("demo").innerHTML = array[current_index];
+              document.getElementById("data-display").innerHTML = dataItem[current_index];
+                e.preventDefault()
+                $.getJSON('/background_process_test',
+                    function(data) {
+                  //do nothing
+                });
+                return false;
+              });
+            });
+    </script>
+    <script>
+      current_index = 0
+      document.getElementById("demo").innerHTML = array[current_index];
+    </script>
+    <script type=text/javascript>
+      let heading = ["Punjabi Turban", "Muslim Cap", "Rajasthani Pagri"];
+      $(function() {
+        $('a#choice_selection').on('click', function(e) {
+        current_index = (current_index) % heading.length
+        document.getElementById("head-display").innerHTML = heading[current_index];
+          e.preventDefault();
+          return false;
+        });
+      });
+    </script>
+    <script>
+      current_index = 0
+      document.getElementById("head-display").innerHTML = heading[current_index];
+    </script>
+    <script type=text/javascript>
+      let dataItem = ["Blue color suits you..!!", "You look lovely in Green :-)", "Woahh..!! Looks like rainbow on your head"];
+      let histDataItem = ["The turban of a Sikh is a gift given on Bai- sakhi Day of 1699 by the Tenth Master, Guru Gobind Singh. After giving Amrit to the Five Beloved Ones, he gave Sikhs bana, the distinctive dress that includes the turban.During Guru Gobind Singh’s time, the turban, or “dastar,” as it is called in Persian, carried a totally different connotation from that of a hat in Europe." +
+      "<br/>" + "The turban represented respectability and was a sign of nobility. At that time, a Mughal aristocrat or a Hindu Rajput could be easily distinguished by his turban. The Hindu Rajputs were the only Hindus allowed to wear ornate turbans, carry weapons and have their mustache and beard. Also at this time, only the Rajputs could have Singh (“lion”) or Kaur (“princess”) as their second name." +
+      "<br/><br/>"+ "Even the Gurus did not have Singh as part of their name, until the Tenth Guru.The downtrodden followers of the Sikh faith did not have the means to display aristocratic attire, nor were they allowed to, even if they had the means. (Doing so was usually equivalent to a death sentence.) It was in this context that Guru Gobind Singh decided to turn the tables on the ruling aristocracy by commanding every Sikh to carry a sword, take up the name Singh or Kaur, and have kesh (hair) and turban displayed boldly, without any fear. This effectively made his followers see themselves on a par with the Mughal rulers."
+          , "The Taqiyah (Arabic: طاقية, ALA-LC: ṭāqīyah[note 1]) or araqchin (Persian: عرقچین) is a short, rounded skullcap. It is often worn for religious purposes; for example, Muslims believe that the Islamic prophet Muhammad used to keep his head covered, therefore making it mustahabb (i.e., it is commendable to cover the head in order to emulate him).[1] Muslim men often wear them during the five daily prayers. "+"<br/><br/>"+
+          "When worn by itself, the taqiyah can be any color. However, particularly in Arab countries, when worn under the keffiyeh headscarf, they are kept in a traditional white. Some Muslims wrap a turban around the cap, called an ʿimamah in Arabic, which is often done by Shia and Sunni Muslims. In the United States and Britain, taqiyas are usually referred to as -kufis-."+"<br/><br/>"+
+          " Topi is a type of taqiyah cap that is worn in Pakistan, Bangladesh, India, and other regions of South Asia. Many different types of topi caps include the Sindhi cap, worn in Sindh and the crochet topi that is often worn at Muslim prayer services (see salat). The topi cap is often worn with shalwar kameez, which is the national costume of Pakistan. "
+          , "If there is one item that instantly conjures up the image of Rajasthan, then it is the ‘Rajasthani Pagri‘. It has various names such as ‘Rajasthani Safa‘, ‘Paaga‘, or ‘Marwari Pagri‘. The Rajasthani Pagri is a style of the turban of Rajasthan, indigenous to Rajasthan. Men primarily wear it and a feeling of great pride accompanies the wearer. It, therefore, symbolizes tradition and respect. "+"<br/><br/>"+
+          "These turbans of Rajasthan go back a long way in history. The Rajasthani Pagri is not just another piece of attire but is also a symbol of social status. A pagri is approximately 21 meters while a safa is between 9 to 11 meters. A person’s caste, religion, occupation can be known from the way the turban is worn. "+"<br/><br/>"+
+          "It offers various other utilities – The tribes of Rajasthan who live in the intense heat of the desert keep their heads cool with this pagri. There are other unique ways to use it. It can be used as a cover or towel. The turban’s long 9-meter cloth is also used as a rope to draw water from a well. "+"<br/><br/>"+
+          "Rajasthani Pagris were worn as far back as 7th Century CE – That’s right, this cultural attire celebrates a long history behind it. When Rajput kings ruled the land, these turbans came into existence. The purest and richest fabrics of cotton and silk went into the making of these pagris. A headgear fit for royalty, the kings wore this as a symbol of social status. "];
+      let SignDataItem = ["In the Khalsa society, the turban signifies many virtues:"+"<br/><br/>"+" Spirituality : The Dastaar is a symbol of spirituality and holiness in Sikhism. "+"<br/><br/>"+"Honour and self-respect : The Dastaar is also a symbol of honour and self-respect. In the Punjabi culture, those who have selflessly served the community are traditionally honoured with turbans. Responsibility Rasam Pagri (“Turban ceremony”) is a ceremony in North India. Rasam Pagri takes place, when a man passes away and his oldest son takes over the family responsibilities by tying the turban in front of a large gathering. It signifies that now he has shouldered the responsibility of his father and he is the head of the family."+"<br/><br/>"+" Piety and moral values : The Dastaar also signifies piety and purity of mind. In the Punjabi society, the Khalsa Sikhs are considered as protectors of the weak, even among the non-Sikhs. In the older times, the Khalsa warriors moved from village to village at night, during the battles. When they needed a place to hide from the enemy, the womenfolk, who had a very high degree of trust in them used to let them inside their houses. It was a common saying in Punjab: Aye nihang, booha khol de nishang (“The nihangs are at the door. Dear woman! go ahead open the door without any fear whatsoever.”) "+"<br/><br/>"+"Courage : Sikhs wear a Dastaar, partly to cover their long hair, which is never cut, as per the wish of their last human Guru, Guru Gobind Singh. There are many references in the Sikh history that describe how Guru Gobind Singh personally tied beautiful dumalas (Dastaar) on the heads of both his elder sons Ajit Singh and Jujhar Singh, and how he personally gave them arms, decorated them like bridegrooms, and sent them to the battlefield at Chamkaur Sahib where they both died as martyrs. A saffron-colored turban is especially identified with courage, sacrifice and martyrdom. "+"<br/><br/>"+"Friendship and relationship : Pag Vatauni (“exchange of turban”) is a Punjabi custom, in which the men exchange Dastaars with their closest friends. Once they exchange turbans they become friends for life and forge a permanent relationship. They take a solemn pledge to share their joys and sorrows under all circumstances. Exchanging turban is a glue that can bind two individuals or families together for generations. "
+          , "Muhammad's Follower : Many Muslims wear prayer caps to show that they are a follower of Muhammad. In the Quran, all companions of Muhammad wore head coverings at all times, which is one of the reasons Muslims adopted this practice. It is also believed that this was one of Muhammad's rules, so Muslims wear prayer caps to obey and follow Muhammad's tradition."+"<br/><br/>"+
+          " Prayer : A prayer cap is most often worn during prayer either at home or in a mosque. For men, it is mustahab, or seeking the love of God, to cover the head during prayer. Many mosques place prayer caps for men and head scarves for women outside the door so that everyone entering the mosque has the option of covering their head. However, head covering is not required to enter a mosque; rather, it is considered to be a sign of respect for Islamic religious teachings and traditions. "+"<br/><br/>"+
+          "Modesty : Modesty in Islam is one of the central principles of faith. Muslims must show modesty in all aspects of life, such as speech, actions, dress and behavior. Although the Quran does not explicitly state that men must cover their heads, Muslims have historically chosen to wear prayer caps as an outward sign of modesty. Choosing not to cover the head or wear a prayer cap is considered to be a sign of vanity and pride. "+"<br/><br/>"+
+          "Religious Conversion : When a Westerner converts to Islam, it is customary to begin wearing a prayer cap as a sign of religious conversion. It is also a sign of unity, since head covering is one of the most salient aspects of Muslim people. All converts are required to dress modestly, but there are no rules regarding the use of a prayer cap. However, many Western converts choose to wear a prayer cap while praying and during formal events, such as a wedding. Converted Muslims generally have the option of only adding a prayer cap to Western clothing or dressing completely in traditional Muslim clothing."
+          , "The headgear plays an important role in protection, maintain prestige, sophistication and symbol of honor. The people of Rajasthan have always believed in preserving traditions. Due to advancement of technology, the pagi’s of Rajasthan is becoming increasingly popular among masses and even people of other communities are preferring Marwari turban on social and festive occasions like during marriages, birth ceremonies. Similarly, light, sober and dull shades of colours are worn for the prayer meetings of deceased people. "+"<br/><br/>"+
+          "It can be concluded that pagri or turban now-a-days has become an integral part of the socio cultural heritage of India and its popularity is expanding day by day. R ajasthan is often called the shoppers “paradise” as it is famous for textiles, semi-precious stones and handicrafts. The attractive design of jewellery and cloths are eye catching and inviting to any shopper. Rajasthani costumes are always in demand whenever sold. Costumes are often made from textiles using either block printing and tie and dye techniques. The rituals of Rajasthan provide the sense of belongingness through costumes and language. The people of Rajasthan are fond of colourful clothes and ornaments. "+"<br/><br/>"+
+          "Soaked in the brightness and playfulness of hues like yellows and reds, the pagri is a prestigious part of dress for the people of Rajasthan. Every turban or pagri, however, has a certain significance attached to it. It is indicative of the stature to which the person who wears it– something that the color and the style of the turban are reflective of Headgears worn in Rajasthan are referred to as the Pagari and Safa. "+"<br/><br/>"+
+          "They vary in style, colour and size. They also indicate a wearer’s social class, caste, region and the occasion it being worn for. Its shape and size may also vary with the climatic conditions of the different regions. Prominent styles are Pencha, Sela and Safa, although several local variants exist. A conventional Pagari is usually 82 inches long and 8 inches wide. A Safa is shorter and broader. Ordinarily a turban of a single colour is worn. However, turbans of one of more colours may be worn by the elite or during special occasions such as festivals or weddings, etc. Rajasthani turbans are a prominent tourist attraction. Tourists are often encouraged to participate in turban-tying competitions."];
+      let dataItemPics = ["HeadGear_01.png"
+          ,"green.png"
+          ,"red.png"];
+      
+      
+      $(function() {
+        $('div#history').on('click', function(e) {
+            //document.getElementById("image-display").src = '';
+        document.getElementById("data-display").innerHTML = histDataItem[current_index];
+          e.preventDefault()
+          return false;
+        });
+        $('div#significance').on('click', function(e) {
+            //document.getElementById("image-display").src = '';
+        document.getElementById("data-display").innerHTML = SignDataItem[current_index];
+          e.preventDefault();
+          return false;
+        });
+        $('div#photos').on('click', function(e) {
+        document.getElementById("data-display").innerHTML = '<img src= dataItemPics[current_index] />';
+        //document.getElementById('image-display').style.display = "block";
+        //document.getElementById("image-display").src = dataItemPics[current_index];
+          e.preventDefault();
+          return false;
+        });
+      });
+    </script>
+    <script>
+      current_index = 0
+      document.getElementById("data-display").innerHTML = dataItem[current_index];
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IHS-Latest Cultural News</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        body{
+
+        }
+        img_div {
+            margin : 3%;
+        }
+        .newsbox {
+            color : white;
+            display: flex;
+            border : 3px solid bisque;
+            margin : 1%;
+        }
+        .main_news {
+            display : flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+      .btn-default {
+          background-color: #8EC5FC;
+          background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+          color: black;
+          font-size: 16px;
+          font-family: sans-serif;
+          font-weight: 700;
+          /*text-shadow: 1px 1px black;*/
+          /*border-color: #bf00ff;*/
+          padding: 9px 30px;
+          text-decoration: none;
+
+       }
+      .btn-local {
+          color: white;
+          font-size: 16px;
+          font-family: sans-serif;
+          font-weight: 700;
+          text-decoration: none;
+       }
+      .btn-local:hover {
+          color: white;
+      }
+      .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+         background-color: #bf00ff;
+         color:#FFF;
+         border-color: bisque;
+       }
+    </style>
+</head>
+<body style="background: #001B3B;">
+ <nav class="navbar navbar-light bg-dark">
+        <div class="container">
+            <a class="btn-default" href="{{url_for('index')}}">
+                <img src="https://i.postimg.cc/xTKsPZgm/site-logo.jpg" alt="IHS" width="35" height="25">
+                Indian Head-Gear Simulation
+            </a>
+             <a class="btn-local">
+                 Latest Cultural News
+             </a>
+            <a class="btn-default" href="{{url_for('start_the_quiz')}}">Test Your Knowledge</a>
+        </div>
+ </nav>
+ {% for news in cases.articles %}
+     <div class = "newsbox">
+    <div class = "img_div">
+        <img src="{{ news.urlToImage }}" alt="No Image" height = "270rem">
+    </div>
+    <div class = "main_news">
+        <h3> {{ news.title }}</h3>
+        <h6> <a href = "{{ news.url }}"> See Entire News </a></h6>
+        <h6> Author : {{ news.author }}</h6>
+        <p> {{ news.description }}</p>
+    </div>
+</div>
+ {% endfor %}
+</body>
+</html>
