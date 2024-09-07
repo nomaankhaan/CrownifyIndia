@@ -31,10 +31,6 @@ class Video(object):
                     overlay_resize = cv2.resize(overlays[choice], (int(w * size_of_headgears[choice][0]), int(h * size_of_headgears[choice][1])))
                     frame = cvzone.overlayPNG(frame, overlay_resize, [x - position_of_headgears[choice][0],
                                                                       y - position_of_headgears[choice][1]])
-        #if cv2.waitKey(15) == ord('n'):
-        #self.choice = (self.choice + 1) % total_headgears
-        #if cv2.waitKey(15) == ord('q'):
-            #break
 
         ret,jpg=cv2.imencode('.jpg',frame)
         return jpg.tobytes()

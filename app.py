@@ -5,13 +5,6 @@ from camera import Video, choice, total_headgears
 
 app=Flask(__name__)
 
-#rendering the HTML page which has the button
-#@app.route('/index')
-#def json():
- #   return render_template('json.html')
-
-#background process happening without any refreshing
-
 camera.choice = 0
 
 @app.route('/')
@@ -68,4 +61,4 @@ def video():
     return Response(gen(Video()),
     mimetype='multipart/x-mixed-replace; boundary=frame')
 
-#app.run(debug=True)
+app.run(debug=True)
